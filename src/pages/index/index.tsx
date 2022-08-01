@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className='flex items-center justify-between'>
         <button onClick={() => setCount(count - 1)}>-</button>
         <p>{count}</p>
         <button onClick={() => setCount(count + 1)}>+</button>
