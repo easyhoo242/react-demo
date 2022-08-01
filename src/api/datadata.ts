@@ -1,3 +1,56 @@
+interface IDataType {
+  data: {
+    createdAt: number
+    updatedAt: number
+    id: string
+    name: string
+    lang: string
+    person: string
+  }[]
+
+  createdAt: number
+  updatedAt: number
+  id: string
+}
+
+export interface IMovieDetail {
+  data: {
+    createdAt: number
+    updatedAt: number
+    id: string
+    poster: string
+    name: string
+    genre: string
+    description: string
+    language: string
+    country: string
+    lang: string
+    shareImage: string
+    movie: string
+  }[]
+  writer: IDataType[]
+  actor: IDataType[]
+  director: IDataType[]
+
+  updatedAt: number
+  createdAt: number
+  id: string
+  originalName: string
+  imdbVotes: number
+  imdbRating: string
+  rottenRating: string
+  rottenVotes: number
+  year: string
+  imdbId: string
+  alias: string
+  doubanId: string
+  type: string
+  doubanRating: string
+  doubanVotes: number
+  duration: number
+  dateReleased: string
+}
+
 export const movieDetail = {
   data: [
     {
