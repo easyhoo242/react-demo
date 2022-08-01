@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@types/mockjs': ^1.0.6
+  '@types/node': ^18.6.3
   '@types/react': ^18.0.15
   '@types/react-dom': ^18.0.6
   '@vitejs/plugin-react': ^2.0.0
@@ -14,8 +15,6 @@ specifiers:
   react-vant: 3.0.0-rc.6
   typescript: ^4.6.4
   unocss: ^0.45.1
-  unplugin-vue-components: ^0.21.2
-  vant: ^3.5.3
   vite: ^3.0.0
 
 dependencies:
@@ -25,17 +24,16 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-vant: 3.0.0-rc.6_biqbaboplfbrettd7655fr4n2y
-  vant: 3.5.3
 
 devDependencies:
   '@types/mockjs': 1.0.6
+  '@types/node': 18.6.3
   '@types/react': 18.0.15
   '@types/react-dom': 18.0.6
   '@vitejs/plugin-react': 2.0.0_vite@3.0.4
   less: 4.1.3
   typescript: 4.7.4
   unocss: 0.45.1_vite@3.0.4
-  unplugin-vue-components: 0.21.2_vite@3.0.4
   vite: 3.0.4_less@4.1.3
 
 packages:
@@ -473,6 +471,10 @@ packages:
     resolution: {integrity: sha512-Yu5YlqbYZyqsd6LjO4e8ONJDN9pTSnciHDcRP4teNOh/au2b8helFhgRx+3w8xsTFEnwr9jtfTVJbAx+eYmlHA==}
     dev: true
 
+  /@types/node/18.6.3:
+    resolution: {integrity: sha512-6qKpDtoaYLM+5+AFChLhHermMQxc3TOEFIDzrZLPRGHPrLEwqFkkT5Kx3ju05g6X7uDPazz3jHbKPX0KzCjntg==}
+    dev: true
+
   /@types/prop-types/15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
     dev: true
@@ -649,18 +651,10 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@vant/icons/1.8.0:
-    resolution: {integrity: sha512-sKfEUo2/CkQFuERxvkuF6mGQZDKu3IQdj5rV9Fm0weJXtchDSSQ+zt8qPCNUEhh9Y8shy5PzxbvAfOOkCwlCXg==}
-    dev: false
-
   /@vant/popperjs/1.2.1:
     resolution: {integrity: sha512-qzQlrPE4aOsBzfrktDVwzQy/QICCTKifmjrruhY58+Q2fobUYp/T9QINluIafzsD3VJwgP8+HFVLBsyDmy3VZQ==}
     dependencies:
       '@popperjs/core': 2.11.5
-    dev: false
-
-  /@vant/use/1.4.1:
-    resolution: {integrity: sha512-YonNN0SuJLEJuqdoMcVAJm2JUZWkHNrW81QzeF6FLyG5HFUGlmTM5Sby7gdS3Z/8UDMlkWRQpJxBWbmVzmUWxQ==}
     dev: false
 
   /@vitejs/plugin-react/2.0.0_vite@3.0.4:
@@ -679,12 +673,6 @@ packages:
       vite: 3.0.4_less@4.1.3
     transitivePeerDependencies:
       - supports-color
-    dev: true
-
-  /acorn/8.8.0:
-    resolution: {integrity: sha512-QOxyigPVrpZ2GXT+PFyZTl6TtOFc5egxHIP9IlQ+RbupQuX4RkT/Bee4/kQuC02Xkzg84JcT7oLYtDIQxp+v7w==}
-    engines: {node: '>=0.4.0'}
-    hasBin: true
     dev: true
 
   /ansi-styles/3.2.1:
@@ -719,19 +707,9 @@ packages:
       - debug
     dev: false
 
-  /balanced-match/1.0.2:
-    resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
-    dev: true
-
   /binary-extensions/2.2.0:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
     engines: {node: '>=8'}
-    dev: true
-
-  /brace-expansion/2.0.1:
-    resolution: {integrity: sha512-XnAIvQ8eM+kC6aULx6wuQiwVsnzsi9d3WxzV3FpWTGA19F621kwdbsAcFKXgKUHZWsy+mY6iL1sHTxWEFCytDA==}
-    dependencies:
-      balanced-match: 1.0.2
     dev: true
 
   /braces/3.0.2:
@@ -1454,13 +1432,6 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /minimatch/5.1.0:
-    resolution: {integrity: sha512-9TPBGGak4nHfGZsPBohm9AWg6NoT7QTCehS3BIJABslyZbzxfV78QM2Y6+i741OPZIafFAaiiEMh5OyIrJPgtg==}
-    engines: {node: '>=10'}
-    dependencies:
-      brace-expansion: 2.0.1
-    dev: true
-
   /mockjs/1.1.0:
     resolution: {integrity: sha512-eQsKcWzIaZzEZ07NuEyO4Nw65g0hdWAyurVol1IPl1gahRwY+svqzfgfey8U8dahLwG44d6/RwEzuK52rSa/JQ==}
     hasBin: true
@@ -1927,58 +1898,6 @@ packages:
       - vite
     dev: true
 
-  /unplugin-vue-components/0.21.2_vite@3.0.4:
-    resolution: {integrity: sha512-HBU+EuesDj/HRs7EtYH7gBACljVhqLylltrCLModRmCToIIrrNvMh54aylUt4AD4qiwylgOx4Vgb9sBlrIcRDw==}
-    engines: {node: '>=14'}
-    peerDependencies:
-      '@babel/parser': ^7.15.8
-      vue: 2 || 3
-    peerDependenciesMeta:
-      '@babel/parser':
-        optional: true
-    dependencies:
-      '@antfu/utils': 0.5.2
-      '@rollup/pluginutils': 4.2.1
-      chokidar: 3.5.3
-      debug: 4.3.4
-      fast-glob: 3.2.11
-      local-pkg: 0.4.2
-      magic-string: 0.26.2
-      minimatch: 5.1.0
-      resolve: 1.22.1
-      unplugin: 0.7.2_vite@3.0.4
-    transitivePeerDependencies:
-      - esbuild
-      - rollup
-      - supports-color
-      - vite
-      - webpack
-    dev: true
-
-  /unplugin/0.7.2_vite@3.0.4:
-    resolution: {integrity: sha512-m7thX4jP8l5sETpLdUASoDOGOcHaOVtgNyrYlToyQUvILUtEzEnngRBrHnAX3IKqooJVmXpoa/CwQ/QqzvGaHQ==}
-    peerDependencies:
-      esbuild: '>=0.13'
-      rollup: ^2.50.0
-      vite: ^2.3.0 || ^3.0.0-0
-      webpack: 4 || 5
-    peerDependenciesMeta:
-      esbuild:
-        optional: true
-      rollup:
-        optional: true
-      vite:
-        optional: true
-      webpack:
-        optional: true
-    dependencies:
-      acorn: 8.8.0
-      chokidar: 3.5.3
-      vite: 3.0.4_less@4.1.3
-      webpack-sources: 3.2.3
-      webpack-virtual-modules: 0.4.4
-    dev: true
-
   /update-browserslist-db/1.0.5_browserslist@4.21.3:
     resolution: {integrity: sha512-dteFFpCyvuDdr9S/ff1ISkKt/9YZxKjI9WlRR99c180GaztJtRa/fn18FdxGVKVsnPY7/a/FDN68mcvUmP4U7Q==}
     hasBin: true
@@ -1994,16 +1913,6 @@ packages:
     resolution: {integrity: sha512-0Pm9hTQ3se5ll1XihRic3FDIku70C+iHUdT/W926rSgHV5QgXsYbKZN8MSC3tJtSkhuROzvsQjAaFENRXr+19A==}
     dependencies:
       inherits: 2.0.3
-    dev: false
-
-  /vant/3.5.3:
-    resolution: {integrity: sha512-/5BRYbOthBcS3YtgmYDJX2WOTHOyMRURnByBNGSe49UVEppXA9a1tmNWxiwnPSyuaiDdagIpvVySEW4KTgd7rQ==}
-    peerDependencies:
-      vue: ^3.0.0
-    dependencies:
-      '@vant/icons': 1.8.0
-      '@vant/popperjs': 1.2.1
-      '@vant/use': 1.4.1
     dev: false
 
   /vite/3.0.4_less@4.1.3:
@@ -2032,15 +1941,6 @@ packages:
       rollup: 2.77.2
     optionalDependencies:
       fsevents: 2.3.2
-    dev: true
-
-  /webpack-sources/3.2.3:
-    resolution: {integrity: sha512-/DyMEOrDgLKKIG0fmvtz+4dUX/3Ghozwgm6iPp8KRhvn+eQf9+Q7GWxVNMk3+uCPWfdXYC4ExGBckIXdFEfH1w==}
-    engines: {node: '>=10.13.0'}
-    dev: true
-
-  /webpack-virtual-modules/0.4.4:
-    resolution: {integrity: sha512-h9atBP/bsZohWpHnr+2sic8Iecb60GxftXsWNLLLSqewgIsGzByd2gcIID4nXcG+3tNe4GQG3dLcff3kXupdRA==}
     dev: true
 
   /which/2.0.2:
