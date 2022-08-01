@@ -1,19 +1,10 @@
-import { requestMovieDetail } from '~/api'
-import { useState } from 'react'
+import { Button } from 'react-vant'
 
 const Detail = () => {
-  const [detail, setDetail] = useState('')
-
-  const getData = async () => {
-    // const res = await requestMovieDetail()
-    // console.log(res)
-  }
-  getData()
-
   return (
     <>
       <p>detail</p>
-      <div>{detail}</div>
+      <Button> asd</Button>
     </>
   )
 }
