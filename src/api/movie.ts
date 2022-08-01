@@ -1,10 +1,5 @@
-import axios from 'axios'
-const BASE_URL = 'https://movie.querydata.org/'
-
-const request = axios.create({
-  baseURL: BASE_URL,
-  timeout: 50000,
-})
+import { movieDetail } from './datadata'
+import { request } from '~/utils'
 
 export const requestMovieDetail = (id: number = 1302425) => {
   return request.get('api', {
@@ -13,3 +8,6 @@ export const requestMovieDetail = (id: number = 1302425) => {
     },
   })
 }
+
+export const requestMovieDetailData = () =>
+  new Promise((resolve) => resolve(movieDetail))
