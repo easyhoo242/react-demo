@@ -5,9 +5,183 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React + TS</title>
+
+    <style>
+      .box {
+        height: 25vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      .box .item {
+        position: absolute;
+        margin: 0 auto;
+        width: 85vw;
+        height: 20vh;
+        line-height: 20vh;
+        text-align: center;
+        transform: translateX(0);
+        z-index: 7;
+        transition: all 0.2s linear;
+      }
+
+      .item:nth-child(1) {
+        background-color: #f86;
+      }
+      .item:nth-child(2) {
+        background-color: #f38;
+      }
+      .item:nth-child(3) {
+        background-color: #f66;
+        z-index: 9;
+      }
+      .item:nth-child(4) {
+        background-color: #a95;
+      }
+      .item:nth-child(5) {
+        background-color: #e92;
+      }
+
+      .btns {
+        padding: 5px 20vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      .btns > div {
+        height: 10px;
+        width: 10px;
+        background-color: #ccc;
+        border-radius: 5px;
+      }
+
+      .btns > div.active {
+        background-color: #f86;
+      }
+
+      .click {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .click .pre-btn {
+        margin-right: 20px;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <div>
+      <div class="box">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+
+      <div class="btns"></div>
+
+      <div class="click">
+        <button class="pre-btn">上一张</button>
+        <button class="nex-btn">下一张</button>
+      </div>
+    </div>
+
+    <script>
+      function init() {
+        const _box = document.querySelector('.box')
+        const btnWrap = document.querySelector('.btns')
+        const preClick = document.querySelector('.pre-btn')
+        const nexClick = document.querySelector('.nex-btn')
+
+        createController(_box, btnWrap)
+        clickBtn(btnWrap, _box)
+
+        preClick.addEventListener('click', handlePreClick)
+
+        nexClick.addEventListener('click', () => {
+          console.log('nexClick')
+        })
+      }
+
+      let pre = item.length - 1 // 上一张
+      let current = 0 // 当前
+      let next = 1 // 下一张
+      let time = 0
+      let isActive = false // 正在切换
+
+      function setDom(isNext = true) {
+        item[pre].style.zIndex = isNext ? 8 : 7
+        item[current].style.zIndex = 9
+        item[next].style.zIndex = isNext ? 7 : 8
+
+        item[pre].style.transform = 'translateX(-100%)'
+        item[current].style.transform = 'translateX(0)'
+        item[next].style.transform = 'translateX(100%)'
+
+        isNext
+          ? (spot[pre].className = 'spot')
+          : (spot[next].className = 'spot')
+
+        spot[current].className = 'spot active'
+
+        setTimeout(() => {
+          isActive = false
+        }, 300)
+      }
+
+      function createController(_box, btnWrap) {
+        const items = _box.children
+        for (let i = 0; i < items.length; i++) {
+          const btn = document.createElement('div')
+          btnWrap.appendChild(btn)
+        }
+      }
+
+      function clickBtn(btnWrap, _box) {
+        const btns = btnWrap.children
+        for (let index = 0; index < btns.length; index++) {
+          btns[index].addEventListener('click', () => {
+            for (let index = 0; index < btns.length; index++) {
+              btns[index].className = ''
+            }
+            btns[index].className = 'active'
+
+            // moveItem(index, _box)
+          })
+        }
+      }
+
+      function moveItem(index, _box) {
+        const items = _box.children
+
+        // 重置样式
+        for (let index = 0; index < items.length; index++) {
+          items[index].style.zIndex = 7
+        }
+        items[index].style.zIndex = 9
+
+        // items[index - 1].style.transform = 'translateX(-85vw)'
+
+        // 移动
+        items[index - 1].style.left = '-70vw'
+        items[index].style.left = '15vw'
+
+        items[index - 1].style.transform = 'translateX(-85vw)'
+        items[index].style.transform = 'translateX()'
+      }
+
+      function handlePreClick() {}
+
+      init()
+    </script>
   </body>
 </html>
