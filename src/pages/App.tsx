@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import About from '~/pages/About'
 import Home from '~/pages/Home'
+import Grid from '~/pages/Grid'
 
 export default function App() {
   return (
@@ -10,6 +11,7 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
+        <Route path='/grid' element={<Grid />} />
       </Routes>
     </div>
   )
