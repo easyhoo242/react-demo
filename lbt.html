@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .box {
+        height: 25vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: relative;
+      }
+
+      .box .item {
+        position: absolute;
+        width: 80vw;
+        height: 20vh;
+        line-height: 20vh;
+        text-align: center;
+        /* transform: translateX(0); */
+        z-index: 7;
+        transition: all 0.5s linear;
+      }
+
+      .item:nth-child(1) {
+        background-color: #f86;
+      }
+      .item:nth-child(2) {
+        background-color: #f38;
+      }
+      .item:nth-child(3) {
+        background-color: #f66;
+      }
+      .item:nth-child(4) {
+        background-color: #a95;
+      }
+      .item:nth-child(5) {
+        background-color: #e92;
+      }
+      .item:nth-child(6) {
+        background-color: rgb(176, 139, 86);
+      }
+      .item:nth-child(7) {
+        background-color: rgb(97, 83, 65);
+      }
+      .item:nth-child(8) {
+        background-color: rgb(34, 238, 112);
+      }
+
+      .click {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .click .pre-btn {
+        margin-right: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="item">0</div>
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+      <div class="item">7</div>
+    </div>
+
+    <div class="click">
+      <button class="pre-btn">上一张</button>
+      <button class="nex-btn">下一张</button>
+    </div>
+
+    <script>
+      const box = document.querySelector('.box')
+      const preBtn = document.querySelector('.pre-btn')
+      const nexBtn = document.querySelector('.nex-btn')
+
+      const items = box.children
+
+      let _index = 0
+      let preIndex = 0
+      let nextIndex = 1
+      let isActive = false
+
+      showActive(_index)
+
+      preBtn.addEventListener('click', () => preClick())
+      nexBtn.addEventListener('click', () => nextClick())
+
+      function nextClick() {
+        if (isActive) {
+          return
+        }
+
+        if (_index < items.length - 1) {
+          initTranslate()
+          items[_index].style.transform = 'translateX(-80vw)'
+          items[_index + 1].style.transform = 'translateX(0vw)'
+
+          if (_index > 1) {
+            items[_index - 1].style.transform = 'translateX(-80vw)'
+            items[0].style.transform = 'translateX(80vw)'
+          }
+
+          _index++
+          showActive(_index)
+        } else if (_index === items.length - 1) {
+          for (let i = 0; i < items.length - 1; i++) {
+            items[i].style.transition = 'none'
+            items[items.length - 1].style.transform = 'translateX(0vw)'
+            items[0].style.transform = 'translateX(80vw)'
+            items[i].style.transition = 'all 0.5s linear'
+          }
+          _index = 0
+
+          items[items.length - 1].style.transform = 'translateX(-80vw)'
+          items[0].style.transform = 'translateX(0)'
+          items[items.length - 1].style.zIndex = '-10'
+        }
+      }
+
+      function preClick() {
+        if (isActive) {
+          return
+        }
+        initDom()
+      }
+
+      function showActive(index) {
+        for (let i = 0; i < items.length - 1; i++) {
+          items[i].style.zIndex = 7
+        }
+
+        items[index].style.zIndex = 9
+      }
+
+      function initTranslate() {
+        for (let i = 0; i < items.length - 1; i++) {
+          items[i].style.transition = 'none'
+          items[i + 1].style.transform = 'translateX(80vw)'
+          items[i].style.transition = 'all 0.5s ease-in-out'
+        }
+      }
+    </script>
+  </body>
+</html>
