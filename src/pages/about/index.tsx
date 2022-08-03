@@ -6,11 +6,6 @@ export default function About() {
       <main>
         <p>about</p>
       </main>
-
-      <div>
-        <Link to='/about'>about</Link>
-        <Link to='/'>home</Link>
-      </div>
     </>
   )
 }

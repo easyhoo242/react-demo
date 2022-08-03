@@ -1,4 +1,3 @@
-import { Divider } from 'react-vant'
 import './index.less'
 
 export default function Grid() {
