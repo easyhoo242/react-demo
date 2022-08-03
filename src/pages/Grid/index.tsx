@@ -22,7 +22,10 @@ export default function Grid() {
             .map((_, index) => index)
             .map((item) => {
               return (
-                <div key={item} className={`items item-${item} center-center`}>
+                <div
+                  key={item}
+                  className={`items item-${item + 1} center-center`}
+                >
                   KEY: {item + 1}
                 </div>
               )
