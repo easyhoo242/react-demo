@@ -1,13 +1,12 @@
-import { Link } from 'react-router-dom'
 import React, { useContext } from 'react'
 
 const AboutContext = React.createContext('')
-const { Provider: AboutProvider } = AboutContext
 
 interface ISon {
   name: string
   emitName: (name: string) => void
 }
+
 function AboutSon(props: ISon) {
   return (
     <div className='p-2 bg-[#ccc]'>
@@ -41,19 +40,6 @@ export default function About() {
       <main>
         <p>about父组件</p>
       </main>
-
-      <hr />
-
-      <AboutProvider value='1.88'>
-        <AboutSon name='wdl' emitName={changeName} />
-
-        <AboutGrandSon />
-      </AboutProvider>
-
-      <div>
-        <Link to='/about'>about</Link>
-        <Link to='/'>home</Link>
-      </div>
     </>
   )
 }
