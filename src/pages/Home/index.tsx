@@ -1,16 +1,26 @@
-import { Link } from 'react-router-dom'
-
-export default function Home() {
+export default function Father() {
+  function handleOnclick(res: string) {
+    console.log(res)
+  }
   return (
     <>
-      <main>
-        <h2>Welcome to the homepage!</h2>
-        <p>You can do this, I believe in you.</p>
-      </main>
-      <nav>
-        <Link to='/'>home</Link>
-        <Link to='/about'>About</Link>
-      </nav>
+      <div></div>
+      <Son title='9999' handleOnclick={handleOnclick} />
+    </>
+  )
+}
+
+export function Son(props: any) {
+  const title = '0000'
+  return (
+    <>
+      <button
+        onClick={() => {
+          props.handleOnclick(title)
+        }}
+      >
+        onclick
+      </button>
     </>
   )
 }
