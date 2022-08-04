@@ -7,7 +7,7 @@ import Css from '~/pages/Css'
 export default function App() {
   return (
     <div className='App'>
-      <header className='bg-[#ccc] rounded-md px-3 py-1 flex items-center justify-between font-semibold color-[#f88] shadow-sm shadow-gray-50'>
+      <header className='cw-base-shadow flex items-center justify-between text-[12px] uppercase'>
         <Link className='color-[#f88]' to='/'>
           HOME
         </Link>
