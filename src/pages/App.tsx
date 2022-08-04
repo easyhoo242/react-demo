@@ -3,6 +3,7 @@ import About from '~/pages/About'
 import Home from '~/pages/Home'
 import Grid from '~/pages/Grid'
 import Css from '~/pages/Css'
+import User from '~/pages/Users/_id'
 
 export default function App() {
   return (
@@ -23,6 +24,10 @@ export default function App() {
         <Link className='color-[#d56]' to='/css'>
           Css
         </Link>
+
+        <Link className='color-[#d82]' to='/users'>
+          Users
+        </Link>
       </header>
 
       <div className='cw-base-shadow'>
@@ -31,6 +36,10 @@ export default function App() {
           <Route path='/about' element={<About />} />
           <Route path='/grid' element={<Grid />} />
           <Route path='/css' element={<Css />} />
+
+          <Route path='/users'>
+            <Route path=':id' element={<User />} />
+          </Route>
         </Routes>
       </div>
     </div>

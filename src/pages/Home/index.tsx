@@ -1,11 +1,16 @@
+import { Outlet } from 'react-router-dom'
+
 export default function Father() {
   function handleOnclick(res: string) {
     console.log(res)
   }
   return (
     <>
-      <div></div>
       <Son title='9999' handleOnclick={handleOnclick} />
+
+      <div className='cw-base-shadow'>
+        <Outlet />
+      </div>
     </>
   )
 }

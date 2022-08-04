@@ -23,7 +23,7 @@ function AboutSon(props: ISon) {
   )
 }
 
-function AboutGrandSon() {
+export function AboutGrandSon() {
   const height = useContext(AboutContext)
 
   return (
@@ -41,8 +41,6 @@ export default function About() {
     <>
       <main>
         <p>about父组件</p>
-
-        <hr />
 
         <Provider value='1.88'>
           <AboutSon title={title} emitName={changeName} />
