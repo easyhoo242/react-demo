@@ -5,6 +5,8 @@ import Grid from '~/pages/Grid'
 import Css from '~/pages/Css'
 import User from '~/pages/Users/_id'
 
+const CURRENT_USER = 23
+
 export default function App() {
   return (
     <div className='App'>
@@ -25,7 +27,7 @@ export default function App() {
           Css
         </Link>
 
-        <Link className='color-[#d82]' to='/users'>
+        <Link className='color-[#d82]' to={`/users/${CURRENT_USER}`}>
           Users
         </Link>
       </header>
