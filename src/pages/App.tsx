@@ -25,7 +25,7 @@ export default function App() {
         </Link>
       </header>
 
-      <div className='rounded-md px-15px py-20px m-1 shadow-dark-50 shadow-sm'>
+      <div className='cw-base-shadow'>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />

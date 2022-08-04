@@ -1,19 +1,20 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 
 const AboutContext = React.createContext('')
+const { Provider } = AboutContext
 
 interface ISon {
-  name: string
+  title: string
   emitName: (name: string) => void
 }
 
 function AboutSon(props: ISon) {
   return (
-    <div className='p-2 bg-[#ccc]'>
+    <div className='cw-base-shadow'>
       <p>about 子组件</p>
-      <div>{props.name}</div>
+      <div>{props.title}</div>
 
-      <button onClick={() => props.emitName(`${props.name} newName`)}>
+      <button onClick={() => props.emitName('子组件传来的title')}>
         子传父
       </button>
 
@@ -23,22 +24,29 @@ function AboutSon(props: ISon) {
 }
 
 function AboutGrandSon() {
-  const ctx = useContext(AboutContext)
+  const height = useContext(AboutContext)
 
   return (
-    <>
-      <p>about孙子组件</p>1<div>身高：{ctx}</div>
-    </>
+    <div className='cw-base-shadow'>
+      <p>about孙子组件</p>1<div>身高：{height}</div>
+    </div>
   )
 }
 
 export default function About() {
-  const changeName = (res: string) => console.log(res)
+  const changeName = (res: string) => setTitle(res)
+  const [title, setTitle] = useState('默认title')
 
   return (
     <>
       <main>
         <p>about父组件</p>
+
+        <hr />
+
+        <Provider value='1.88'>
+          <AboutSon title={title} emitName={changeName} />
+        </Provider>
       </main>
     </>
   )
