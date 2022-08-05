@@ -1,7 +1,5 @@
 import { Link, Outlet } from 'react-router-dom'
 
-const CURRENT_USER = 23
-
 export default function Layout() {
   return (
     <>
@@ -22,7 +20,7 @@ export default function Layout() {
           Css
         </Link>
 
-        <Link className='color-[#d82]' to={`/users/${CURRENT_USER}`}>
+        <Link className='color-[#d82]' to={`/users`}>
           Users
         </Link>
       </section>

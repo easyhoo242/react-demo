@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom'
+import { useRoutes } from 'react-router-dom'
+import type { RouteObject } from 'react-router-dom'
 import Top from '~/components/Top'
 import Body from '~/components/Body'
 import Layout from '~/components/Layout'
@@ -7,25 +8,50 @@ import Home from '~/pages/Home'
 import Grid from '~/pages/Grid'
 import Css from '~/pages/Css'
 import User from '~/pages/Users/_id'
+import Users, { UsersWrap, LoginPage } from '~/pages/Users'
 
 export default function App() {
+  const routes: RouteObject[] = [
+    {
+      path: '/',
+      element: <Layout />,
+      children: [
+        {
+          index: true,
+          element: <Home />,
+        },
+        {
+          path: '/about',
+          element: <About />,
+        },
+        {
+          path: '/users',
+          element: <Users />,
+          children: [
+            {
+              index: true,
+              element: <UsersWrap />,
+            },
+            {
+              path: '/users/user-login',
+              element: <LoginPage />,
+            },
+          ],
+        },
+        { path: '/grid', element: <Grid /> },
+        { path: '/css', element: <Css /> },
+        { path: '*', element: <div>404</div> },
+      ],
+    },
+  ]
+  const router = useRoutes(routes)
+
   return (
     <div className='App'>
       <Top />
       <Body />
 
-      <Routes>
-        <Route path='/' element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/grid' element={<Grid />} />
-          <Route path='/css' element={<Css />} />
-
-          <Route path='/users'>
-            <Route path=':id' element={<User />} />
-          </Route>
-        </Route>
-      </Routes>
+      {router}
     </div>
   )
 }
