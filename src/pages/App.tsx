@@ -1,5 +1,6 @@
 import { Routes, Route, Link } from 'react-router-dom'
 import Top from '~/components/Top'
+import Body from '~/components/Body'
 import About from '~/pages/About'
 import Home from '~/pages/Home'
 import Grid from '~/pages/Grid'
@@ -12,6 +13,7 @@ export default function App() {
   return (
     <div className='App'>
       <Top />
+      <Body />
 
       <section className='cw-base-shadow flex items-center justify-between text-[12px] uppercase'>
         <Link className='color-[#f88]' to='/'>
