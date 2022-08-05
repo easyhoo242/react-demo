@@ -1,16 +1,11 @@
-import { Outlet } from 'react-router-dom'
-
 export default function Father() {
   function handleOnclick(res: string) {
     console.log(res)
   }
   return (
     <>
+      <div>Home</div>
       <Son title='9999' handleOnclick={handleOnclick} />
-
-      <div className='cw-base-shadow'>
-        <Outlet />
-      </div>
     </>
   )
 }
@@ -18,14 +13,16 @@ export default function Father() {
 export function Son(props: any) {
   const title = '0000'
   return (
-    <>
+    <div className='cw-base-shadow'>
+      HomeSon
+      <br />
       <button
         onClick={() => {
           props.handleOnclick(title)
         }}
       >
-        onclick
+        onClick
       </button>
-    </>
+    </div>
   )
 }

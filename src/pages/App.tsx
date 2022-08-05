@@ -1,13 +1,12 @@
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Top from '~/components/Top'
 import Body from '~/components/Body'
+import Layout from '~/components/Layout'
 import About from '~/pages/About'
 import Home from '~/pages/Home'
 import Grid from '~/pages/Grid'
 import Css from '~/pages/Css'
 import User from '~/pages/Users/_id'
-
-const CURRENT_USER = 23
 
 export default function App() {
   return (
@@ -15,31 +14,9 @@ export default function App() {
       <Top />
       <Body />
 
-      <section className='cw-base-shadow flex items-center justify-between text-[12px] uppercase'>
-        <Link className='color-[#f88]' to='/'>
-          HOME
-        </Link>
-
-        <Link className='color-[#f34]' to='/about'>
-          ABOUT
-        </Link>
-
-        <Link className='color-[#d56]' to='/grid'>
-          GRID
-        </Link>
-
-        <Link className='color-[#d56]' to='/css'>
-          Css
-        </Link>
-
-        <Link className='color-[#d82]' to={`/users/${CURRENT_USER}`}>
-          Users
-        </Link>
-      </section>
-
-      <div className='cw-base-shadow'>
-        <Routes>
-          <Route path='/' element={<Home />} />
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Home />} />
           <Route path='/about' element={<About />} />
           <Route path='/grid' element={<Grid />} />
           <Route path='/css' element={<Css />} />
@@ -47,8 +24,8 @@ export default function App() {
           <Route path='/users'>
             <Route path=':id' element={<User />} />
           </Route>
-        </Routes>
-      </div>
+        </Route>
+      </Routes>
     </div>
   )
 }
